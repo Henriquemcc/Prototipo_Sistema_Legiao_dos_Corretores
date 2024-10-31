@@ -1,8 +1,11 @@
 spring:
   application:
     name: sistema
+  sql:
+    init:
+      mode: always
   datasource:
-    driverClassName: com.mysql.cj.jdbc.Drive
+    driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/sistema
     username: 'myuser'
     password: 'secret'
