@@ -1,5 +1,7 @@
 plugins {
 	kotlin("jvm") version "1.9.25"
+	kotlin("plugin.jpa") version "2.0.20"
+	kotlin("plugin.noarg") version "2.0.20"
 	kotlin("plugin.spring") version "1.9.25"
 	id("org.springframework.boot") version "3.3.5"
 	id("io.spring.dependency-management") version "1.1.6"
@@ -27,6 +29,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+	implementation("org.jetbrains.kotlin:kotlin-maven-noarg:2.0.20")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
