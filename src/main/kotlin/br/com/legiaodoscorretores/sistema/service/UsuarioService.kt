@@ -22,4 +22,8 @@ class UsuarioService(
         usuarioAnterior.usuario = usuario.usuario
         usuarioAnterior.senha = usuario.senha
     }
+
+    fun deletar(idUsuario: Long) {
+        usuarioRepository.deleteById(idUsuario)
+    }
 }

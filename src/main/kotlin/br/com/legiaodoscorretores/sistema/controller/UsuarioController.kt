@@ -3,6 +3,7 @@ package br.com.legiaodoscorretores.sistema.controller
 import br.com.legiaodoscorretores.sistema.model.Usuario
 import br.com.legiaodoscorretores.sistema.service.UsuarioService
 import jakarta.transaction.Transactional
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -31,5 +32,10 @@ class UsuarioController(
     @Transactional
     fun atualizar(@RequestBody usuario: Usuario, @PathVariable idUsuario: Long) {
         service.atualizar(usuario, idUsuario)
+    }
+
+    @DeleteMapping("/{idUsuario}")
+    fun deletar(@PathVariable idUsuario: Long) {
+        service.deletar(idUsuario)
     }
 }
