@@ -20,6 +20,8 @@ repositories {
 
 dependencies {
 	implementation("com.mysql:mysql-connector-j:9.0.0")
+	implementation("org.flywaydb:flyway-core:10.20.1")
+	implementation("org.flywaydb:flyway-mysql:10.20.1")
 	implementation("org.springframework.boot:spring-boot-docker-compose:3.3.4")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.3.5")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
