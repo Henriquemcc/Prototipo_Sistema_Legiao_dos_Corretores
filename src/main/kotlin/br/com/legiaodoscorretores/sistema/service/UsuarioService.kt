@@ -11,4 +11,8 @@ class UsuarioService(
     fun listar(): List<Usuario> {
         return usuarioRepository.findAll()
     }
+
+    fun cadastrar(usuario: Usuario) {
+        usuarioRepository.save(usuario)
+    }
 }
