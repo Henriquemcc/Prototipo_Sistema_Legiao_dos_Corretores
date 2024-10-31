@@ -1,0 +1,29 @@
+{
+	"info": {
+		"_postman_id": "7d4b7b6f-2856-45c6-967d-8305e71d029b",
+		"name": "Protótipo Sistema Legião dos Corretores",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21485404"
+	},
+	"item": [
+		{
+			"name": "GET usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
