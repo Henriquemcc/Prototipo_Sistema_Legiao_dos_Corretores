@@ -18,8 +18,8 @@ class UsuarioService(
     }
 
     fun atualizar(usuario: Usuario, idUsuario: Long) {
-        val usuarioRemovido = usuarioRepository.findById(idUsuario).orElseThrow{NotFoundException()}
-        usuarioRemovido.usuario = usuario.usuario
-        usuarioRemovido.senha = usuario.senha
+        val usuarioAnterior = usuarioRepository.findById(idUsuario).orElseThrow{NotFoundException()}
+        usuarioAnterior.usuario = usuario.usuario
+        usuarioAnterior.senha = usuario.senha
     }
 }
