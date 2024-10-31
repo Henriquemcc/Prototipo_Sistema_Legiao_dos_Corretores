@@ -22,7 +22,6 @@ dependencies {
 	implementation("com.mysql:mysql-connector-j:9.0.0")
 	implementation("org.springframework.boot:spring-boot-docker-compose:3.3.4")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.3.5")
-	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
