@@ -16,6 +16,10 @@ class UsuarioDtoService(
         return usuarioService.listar().map { u -> usuarioViewMapper.map(u) }
     }
 
+    fun buscarPorId(idUsuario: Long): UsuarioView {
+        return usuarioViewMapper.map(usuarioService.buscarPorId(idUsuario))
+    }
+
     fun cadastrar(novoUsuarioForm: NovoUsuarioForm) {
         usuarioService.cadastrar(usuarioFormMapper.map(novoUsuarioForm))
     }

@@ -13,6 +13,10 @@ class UsuarioService(
         return usuarioRepository.findAll()
     }
 
+    fun buscarPorId(idUsuario: Long): Usuario {
+        return usuarioRepository.findById(idUsuario).orElseThrow{NotFoundException()}
+    }
+
     fun cadastrar(usuario: Usuario) {
         usuarioRepository.save(usuario)
     }

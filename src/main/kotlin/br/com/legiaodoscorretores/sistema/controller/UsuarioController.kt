@@ -25,6 +25,11 @@ class UsuarioController(
         return usuarioDtoService.listar()
     }
 
+    @GetMapping("/{idUsuario}")
+    fun buscarPorId(@PathVariable idUsuario: Long): UsuarioView {
+        return usuarioDtoService.buscarPorId(idUsuario)
+    }
+
     @PostMapping
     @Transactional
     fun cadastrar(@RequestBody novoUsuarioForm: NovoUsuarioForm) {
