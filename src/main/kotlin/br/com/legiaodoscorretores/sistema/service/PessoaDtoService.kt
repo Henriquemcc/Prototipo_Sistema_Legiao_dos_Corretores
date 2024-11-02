@@ -7,7 +7,7 @@ import br.com.legiaodoscorretores.sistema.mapper.PessoaViewMapper
 import org.springframework.stereotype.Service
 
 @Service
-class PessoaViewService(
+class PessoaDtoService(
     val pessoaService: PessoaService,
     val pessoaViewMapper: PessoaViewMapper,
     val pessoaFormMapper: PessoaFormMapper
