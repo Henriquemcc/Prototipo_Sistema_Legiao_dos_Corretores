@@ -1,6 +1,9 @@
 package br.com.legiaodoscorretores.sistema.controller
 
+import br.com.legiaodoscorretores.sistema.dto.NovoUsuarioForm
+import br.com.legiaodoscorretores.sistema.dto.UsuarioView
 import br.com.legiaodoscorretores.sistema.model.Usuario
+import br.com.legiaodoscorretores.sistema.service.UsuarioDtoService
 import br.com.legiaodoscorretores.sistema.service.UsuarioService
 import jakarta.transaction.Transactional
 import org.springframework.web.bind.annotation.DeleteMapping
@@ -15,28 +18,28 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/usuarios")
 class UsuarioController(
-    private val usuarioService: UsuarioService
+    private val usuarioDtoService: UsuarioDtoService
 ) {
     @GetMapping
-    fun listar(): List<Usuario> {
-        return usuarioService.listar()
+    fun listar(): List<UsuarioView> {
+        return usuarioDtoService.listar()
     }
 
     @PostMapping
     @Transactional
-    fun cadastrar(@RequestBody usuario: Usuario) {
-        usuarioService.cadastrar(usuario)
+    fun cadastrar(@RequestBody novoUsuarioForm: NovoUsuarioForm) {
+        usuarioDtoService.cadastrar(novoUsuarioForm)
     }
 
     @PutMapping("/{idUsuario}")
     @Transactional
-    fun atualizar(@RequestBody usuario: Usuario, @PathVariable idUsuario: Long) {
-        usuarioService.atualizar(usuario, idUsuario)
+    fun atualizar(@RequestBody novoUsuarioForm: NovoUsuarioForm, @PathVariable idUsuario: Long) {
+        usuarioDtoService.atualizar(novoUsuarioForm, idUsuario)
     }
 
     @DeleteMapping("/{idUsuario}")
     @Transactional
     fun deletar(@PathVariable idUsuario: Long) {
-        usuarioService.deletar(idUsuario)
+        usuarioDtoService.deletar(idUsuario)
     }
 }
