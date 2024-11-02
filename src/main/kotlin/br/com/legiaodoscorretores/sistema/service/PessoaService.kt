@@ -1,20 +1,21 @@
 package br.com.legiaodoscorretores.sistema.service
 
+import br.com.legiaodoscorretores.sistema.exception.NotFoundException
 import br.com.legiaodoscorretores.sistema.model.Pessoa
 import br.com.legiaodoscorretores.sistema.repository.PessoaRepository
-import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException
 import org.springframework.stereotype.Service
 
 @Service
 class PessoaService (
     private val pessoaRepository: PessoaRepository,
+    private val notFoundMessage: String = "Pessoa não encontrada!"
 ) {
     fun listar(): List<Pessoa> {
         return pessoaRepository.findAll()
     }
 
     fun buscarPorId(idPessoa: Long): Pessoa {
-        return pessoaRepository.findById(idPessoa).orElseThrow{NotFoundException()}
+        return pessoaRepository.findById(idPessoa).orElseThrow{ NotFoundException(notFoundMessage) }
     }
 
     fun cadastrar(pessoa: Pessoa) {
@@ -22,7 +23,7 @@ class PessoaService (
     }
 
     fun atualizar(pessoa: Pessoa, idPessoa: Long) {
-        val pessoaAnterior = pessoaRepository.findById(idPessoa).orElseThrow{NotFoundException()}
+        val pessoaAnterior = pessoaRepository.findById(idPessoa).orElseThrow{NotFoundException(notFoundMessage)}
         pessoaAnterior.nome = pessoa.nome
         pessoaAnterior.sobrenome = pessoa.sobrenome
         pessoaAnterior.rg = pessoa.rg
