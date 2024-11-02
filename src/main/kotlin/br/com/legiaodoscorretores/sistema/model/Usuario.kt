@@ -1,14 +1,14 @@
 package br.com.legiaodoscorretores.sistema.model
 
 import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
+import jakarta.persistence.OneToOne
+import jakarta.validation.constraints.NotEmpty
+import jakarta.validation.constraints.NotNull
 
 @Entity
-class Usuario(
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
-    var usuario: String,
-    var senha: String,
+data class Usuario(
+    @OneToOne @NotNull
+    val pessoa: Pessoa,
+    @NotNull @NotEmpty
+    val senha: String,
 )
