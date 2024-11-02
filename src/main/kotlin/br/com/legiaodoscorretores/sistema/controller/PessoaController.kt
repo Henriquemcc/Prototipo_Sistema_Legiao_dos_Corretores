@@ -16,6 +16,11 @@ class PessoaController(
         return pessoaDtoService.listar()
     }
 
+    @GetMapping("/{idPessoa}")
+    fun buscarPorId(@PathVariable idPessoa: Long): PessoaView {
+        return pessoaDtoService.buscarPorId(idPessoa)
+    }
+
     @PostMapping
     @Transactional
     fun cadastrar(@RequestBody novaPessoaForm: NovaPessoaForm) {

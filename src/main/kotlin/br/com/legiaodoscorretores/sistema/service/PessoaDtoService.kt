@@ -18,6 +18,10 @@ class PessoaDtoService(
         }
     }
 
+    fun buscarPorId(idPessoa: Long): PessoaView {
+        return pessoaViewMapper.map(pessoaService.buscarPorId(idPessoa))
+    }
+
     fun cadastrar(novaPessoaForm: NovaPessoaForm) {
         pessoaService.cadastrar(pessoaFormMapper.map(novaPessoaForm))
     }
