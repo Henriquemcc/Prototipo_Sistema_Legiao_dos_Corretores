@@ -7,10 +7,14 @@ import org.springframework.stereotype.Service
 
 @Service
 class PessoaService (
-    private val pessoaRepository: PessoaRepository
+    private val pessoaRepository: PessoaRepository,
 ) {
     fun listar(): List<Pessoa> {
         return pessoaRepository.findAll()
+    }
+
+    fun buscarPorId(idPessoa: Long): Pessoa {
+        return pessoaRepository.findById(idPessoa).orElseThrow{NotFoundException()}
     }
 
     fun cadastrar(pessoa: Pessoa) {

@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotNull
 @Entity
 data class Usuario(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id:Long,
+    val id:Long? = null,
     @OneToOne @NotNull
     val pessoa: Pessoa,
     @NotNull @NotEmpty
