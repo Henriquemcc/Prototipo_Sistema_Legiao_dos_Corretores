@@ -26,6 +26,26 @@
 			"response": []
 		},
 		{
+			"name": "GET usuario 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/usuarios/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "GET pessoas",
 			"request": {
 				"method": "GET",
@@ -45,6 +65,26 @@
 			"response": []
 		},
 		{
+			"name": "GET pessoa 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pessoas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "POST usuario",
 			"request": {
 				"method": "POST",
@@ -57,7 +97,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\": 1,\n    \"pessoa\": {\n        \"id\": 1,\n        \"nome\": \"João\",\n        \"sobrenome\": \"da Silva\",\n        \"rg\": \"28.064.141-2\",\n        \"cpf\": \"985.694.250-07\",\n        \"telefone\": \"+5599999999999\",\n        \"email\": \"joao.da.silva@email.example\"\n    },\n    \"senha\": \"1234\"\n}",
+					"raw": "{\n    \"idPessoa\": 1,\n    \"senha\": \"1234\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -113,7 +153,7 @@
 			"response": []
 		},
 		{
-			"name": "PUT pessoa",
+			"name": "PUT pessoa 1",
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -148,7 +188,7 @@
 			"response": []
 		},
 		{
-			"name": "PUT usuario",
+			"name": "PUT usuario 1",
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -160,7 +200,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"usuario\": \"john.smith\",\n    \"senha\": \"1234\"\n}",
+					"raw": "{\n    \"idPessoa\": 1,\n    \"senha\": \"12345678\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -183,7 +223,7 @@
 			"response": []
 		},
 		{
-			"name": "DELETE usuario",
+			"name": "DELETE usuario 1",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -203,7 +243,7 @@
 			"response": []
 		},
 		{
-			"name": "DELETE pessoa",
+			"name": "DELETE pessoa 1",
 			"request": {
 				"method": "DELETE",
 				"header": [],
