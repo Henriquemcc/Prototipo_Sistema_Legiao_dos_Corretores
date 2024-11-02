@@ -10,5 +10,5 @@ data class Usuario(
     @OneToOne @NotNull
     val pessoa: Pessoa,
     @NotNull @NotEmpty
-    val senha: String,
+    var senha: String,
 )
