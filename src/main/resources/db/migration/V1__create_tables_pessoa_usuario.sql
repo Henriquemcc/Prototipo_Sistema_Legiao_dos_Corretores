@@ -10,8 +10,9 @@ create table pessoa(
 );
 
 create table usuario(
-    idPessoa bigint not null,
+    id bigint not null auto_increment,
+    pessoa_id bigint not null,
     senha text not null,
-    primary key(idPessoa),
-    foreign key(idPessoa) references pessoa(id)
+    primary key(id),
+    foreign key(pessoa_id) references pessoa(id)
 );
