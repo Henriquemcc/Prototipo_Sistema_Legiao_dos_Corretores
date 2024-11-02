@@ -3,7 +3,7 @@ create table pessoa(
     nome varchar(100),
     sobrenome varchar(100),
     rg varchar(14),
-    cpf varchar(11),
+    cpf varchar(14),
     telefone varchar(15),
     email varchar(254),
     primary key(id)
