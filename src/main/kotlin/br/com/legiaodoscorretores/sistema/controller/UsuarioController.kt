@@ -10,32 +10,33 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestPart
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/usuarios")
 class UsuarioController(
-    private val service: UsuarioService
+    private val usuarioService: UsuarioService
 ) {
     @GetMapping
     fun listar(): List<Usuario> {
-        return service.listar()
+        return usuarioService.listar()
     }
 
     @PostMapping
+    @Transactional
     fun cadastrar(@RequestBody usuario: Usuario) {
-        service.cadastrar(usuario)
+        usuarioService.cadastrar(usuario)
     }
 
     @PutMapping("/{idUsuario}")
     @Transactional
     fun atualizar(@RequestBody usuario: Usuario, @PathVariable idUsuario: Long) {
-        service.atualizar(usuario, idUsuario)
+        usuarioService.atualizar(usuario, idUsuario)
     }
 
     @DeleteMapping("/{idUsuario}")
+    @Transactional
     fun deletar(@PathVariable idUsuario: Long) {
-        service.deletar(idUsuario)
+        usuarioService.deletar(idUsuario)
     }
 }
