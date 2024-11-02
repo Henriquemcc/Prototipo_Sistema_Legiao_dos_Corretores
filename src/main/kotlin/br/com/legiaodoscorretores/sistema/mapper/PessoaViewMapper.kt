@@ -2,7 +2,9 @@ package br.com.legiaodoscorretores.sistema.mapper
 
 import br.com.legiaodoscorretores.sistema.dto.PessoaView
 import br.com.legiaodoscorretores.sistema.model.Pessoa
+import org.springframework.stereotype.Component
 
+@Component
 class PessoaViewMapper: Mapper<Pessoa, PessoaView> {
     override fun map(t: Pessoa): PessoaView {
         return PessoaView(
