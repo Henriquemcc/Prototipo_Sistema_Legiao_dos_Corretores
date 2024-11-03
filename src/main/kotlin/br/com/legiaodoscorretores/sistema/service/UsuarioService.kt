@@ -18,13 +18,15 @@ class UsuarioService(
         return usuarioRepository.findById(idUsuario).orElseThrow{NotFoundException(notFoundMessage)}
     }
 
-    fun cadastrar(usuario: Usuario) {
+    fun cadastrar(usuario: Usuario): Usuario {
         usuarioRepository.save(usuario)
+        return usuario
     }
 
-    fun atualizar(usuario: Usuario, idUsuario: Long) {
+    fun atualizar(usuario: Usuario, idUsuario: Long): Usuario {
         val usuarioAnterior = usuarioRepository.findById(idUsuario).orElseThrow{ NotFoundException(notFoundMessage) }
         usuarioAnterior.senha = usuario.senha
+        return usuarioAnterior
     }
 
     fun deletar(idUsuario: Long) {

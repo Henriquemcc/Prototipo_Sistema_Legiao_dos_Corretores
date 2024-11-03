@@ -6,14 +6,10 @@ import br.com.legiaodoscorretores.sistema.model.Usuario
 import br.com.legiaodoscorretores.sistema.service.UsuarioDtoService
 import br.com.legiaodoscorretores.sistema.service.UsuarioService
 import jakarta.transaction.Transactional
-import org.springframework.web.bind.annotation.DeleteMapping
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.PutMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.*
+import org.springframework.web.util.UriComponentsBuilder
 
 @RestController
 @RequestMapping("/usuarios")
@@ -32,18 +28,22 @@ class UsuarioController(
 
     @PostMapping
     @Transactional
-    fun cadastrar(@RequestBody novoUsuarioForm: NovoUsuarioForm) {
-        usuarioDtoService.cadastrar(novoUsuarioForm)
+    fun cadastrar(@RequestBody novoUsuarioForm: NovoUsuarioForm, uriComponentsBuilder: UriComponentsBuilder): ResponseEntity<UsuarioView> {
+        val usuarioView = usuarioDtoService.cadastrar(novoUsuarioForm)
+        val uri = uriComponentsBuilder.path("/usuarios/").build().toUri()
+        return ResponseEntity.created(uri).body(usuarioView)
     }
 
     @PutMapping("/{idUsuario}")
     @Transactional
-    fun atualizar(@RequestBody novoUsuarioForm: NovoUsuarioForm, @PathVariable idUsuario: Long) {
-        usuarioDtoService.atualizar(novoUsuarioForm, idUsuario)
+    fun atualizar(@RequestBody novoUsuarioForm: NovoUsuarioForm, @PathVariable idUsuario: Long): ResponseEntity<UsuarioView> {
+        val usuarioView = usuarioDtoService.atualizar(novoUsuarioForm, idUsuario)
+        return ResponseEntity.ok(usuarioView)
     }
 
     @DeleteMapping("/{idUsuario}")
     @Transactional
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     fun deletar(@PathVariable idUsuario: Long) {
         usuarioDtoService.deletar(idUsuario)
     }

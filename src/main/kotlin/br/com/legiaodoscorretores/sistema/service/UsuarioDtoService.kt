@@ -20,12 +20,12 @@ class UsuarioDtoService(
         return usuarioViewMapper.map(usuarioService.buscarPorId(idUsuario))
     }
 
-    fun cadastrar(novoUsuarioForm: NovoUsuarioForm) {
-        usuarioService.cadastrar(usuarioFormMapper.map(novoUsuarioForm))
+    fun cadastrar(novoUsuarioForm: NovoUsuarioForm): UsuarioView {
+        return usuarioViewMapper.map(usuarioService.cadastrar(usuarioFormMapper.map(novoUsuarioForm)))
     }
 
-    fun atualizar(novoUsuarioForm: NovoUsuarioForm, idUsuario: Long) {
-        usuarioService.atualizar(usuarioFormMapper.map(novoUsuarioForm), idUsuario)
+    fun atualizar(novoUsuarioForm: NovoUsuarioForm, idUsuario: Long): UsuarioView {
+        return usuarioViewMapper.map(usuarioService.atualizar(usuarioFormMapper.map(novoUsuarioForm), idUsuario))
     }
 
     fun deletar(idUsuario: Long) {
