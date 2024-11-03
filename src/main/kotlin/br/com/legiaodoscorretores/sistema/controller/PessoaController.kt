@@ -29,7 +29,7 @@ class PessoaController(
     @Transactional
     fun cadastrar(@RequestBody novaPessoaForm: NovaPessoaForm, uriComponentsBuilder: UriComponentsBuilder): ResponseEntity<PessoaView> {
         val pessoaView = pessoaDtoService.cadastrar(novaPessoaForm)
-        val uri = uriComponentsBuilder.path("/pessoas/").build().toUri()
+        val uri = uriComponentsBuilder.path("/pessoas/${pessoaView.id}").build().toUri()
         return ResponseEntity.created(uri).body(pessoaView)
     }
 

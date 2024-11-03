@@ -30,7 +30,7 @@ class UsuarioController(
     @Transactional
     fun cadastrar(@RequestBody novoUsuarioForm: NovoUsuarioForm, uriComponentsBuilder: UriComponentsBuilder): ResponseEntity<UsuarioView> {
         val usuarioView = usuarioDtoService.cadastrar(novoUsuarioForm)
-        val uri = uriComponentsBuilder.path("/usuarios/").build().toUri()
+        val uri = uriComponentsBuilder.path("/usuarios/${usuarioView.id}").build().toUri()
         return ResponseEntity.created(uri).body(usuarioView)
     }
 
