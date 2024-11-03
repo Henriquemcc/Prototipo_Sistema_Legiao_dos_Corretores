@@ -18,11 +18,12 @@ class PessoaService (
         return pessoaRepository.findById(idPessoa).orElseThrow{ NotFoundException(notFoundMessage) }
     }
 
-    fun cadastrar(pessoa: Pessoa) {
+    fun cadastrar(pessoa: Pessoa): Pessoa {
         pessoaRepository.save(pessoa)
+        return pessoa
     }
 
-    fun atualizar(pessoa: Pessoa, idPessoa: Long) {
+    fun atualizar(pessoa: Pessoa, idPessoa: Long): Pessoa {
         val pessoaAnterior = pessoaRepository.findById(idPessoa).orElseThrow{NotFoundException(notFoundMessage)}
         pessoaAnterior.nome = pessoa.nome
         pessoaAnterior.sobrenome = pessoa.sobrenome
@@ -30,6 +31,7 @@ class PessoaService (
         pessoaAnterior.cpf = pessoa.cpf
         pessoaAnterior.telefone = pessoa.telefone
         pessoaAnterior.email = pessoa.email
+        return pessoaAnterior
     }
 
     fun deletar(idPessoa: Long) {

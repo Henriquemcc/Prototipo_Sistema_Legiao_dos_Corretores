@@ -22,12 +22,12 @@ class PessoaDtoService(
         return pessoaViewMapper.map(pessoaService.buscarPorId(idPessoa))
     }
 
-    fun cadastrar(novaPessoaForm: NovaPessoaForm) {
-        pessoaService.cadastrar(pessoaFormMapper.map(novaPessoaForm))
+    fun cadastrar(novaPessoaForm: NovaPessoaForm): PessoaView {
+        return pessoaViewMapper.map(pessoaService.cadastrar(pessoaFormMapper.map(novaPessoaForm)))
     }
 
-    fun atualizar(novaPessoaForm: NovaPessoaForm, idPessoa: Long) {
-        pessoaService.atualizar(pessoaFormMapper.map(novaPessoaForm), idPessoa)
+    fun atualizar(novaPessoaForm: NovaPessoaForm, idPessoa: Long): PessoaView {
+        return pessoaViewMapper.map(pessoaService.atualizar(pessoaFormMapper.map(novaPessoaForm), idPessoa))
     }
 
     fun deletar(idPessoa: Long) {
